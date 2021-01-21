@@ -6,7 +6,7 @@ var jumpToCode = (function init() {
     // Elements to highlight in the file listing view
     var fileListingElements = ['td.pct.low'];
 
-    // We don't want to select elements that are direct descendants of another match
+    // We don't want to select elements that are direct descendants of summary match
     var notSelector = ':not(' + missingCoverageClasses.join('):not(') + ') > '; // becomes `:not(a):not(b) > `
 
     // Selecter that finds elements on the page to which we can jump

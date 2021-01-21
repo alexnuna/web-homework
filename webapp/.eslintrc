@@ -1,3 +1,13 @@
 {
-    "extends": "divvy"
+    "extends": "divvy",
+    "rules": {
+        "react/prop-types": [
+            "off"
+        ],
+        "no-unused-vars": "warn",
+        "indent": "off",
+        "react/jsx-indent": "off",
+        "comma-dangle": "off",
+        "react/jsx-sort-props": "off"
+    }
 }

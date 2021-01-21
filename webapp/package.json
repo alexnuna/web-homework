@@ -61,6 +61,10 @@
     "@apollo/react-hooks": "4.0.0",
     "@emotion/core": "10.0.10",
     "@emotion/styled": "10.0.12",
+    "@nivo/bar": "^0.67.0",
+    "@nivo/core": "^0.67.0",
+    "@nivo/pie": "^0.67.0",
+    "antd": "^4.10.3",
     "axios": "0.21.1",
     "emotion-theming": "10.0.10",
     "graphql": "14.3.1",
@@ -69,7 +73,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-hot-loader": "4.11.0",
-    "react-router-dom": "5.0.1"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@apollo/react-testing": "4.0.0",
