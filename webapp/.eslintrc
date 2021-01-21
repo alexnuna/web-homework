@@ -1,5 +1,6 @@
 {
     "extends": "divvy",
+    // didn't want to change the config for VScode that I have to use in other projects :) 
     "rules": {
         "react/prop-types": [
             "off"

@@ -4,8 +4,8 @@ import GetTransactions from '../gql/transactions.gql'
 import { TxTable } from '../components/transactions/TxTable'
 import { Spin, Empty, Modal } from 'antd'
 
-// never have used these API tools so doing this locally for making the most of the time I have on this project :)
-// should also have made this on constant to be used in both the pie component and the home component
+// never have used GraphQL, MongoDB, or Apollo so doing this locally for making the most of the time I have on this project :)
+// should also have made this a constant to be used in both the pie component and the home component
 const fakeData = [{
   id: '1',
   user_id: 'user 1',
@@ -27,9 +27,9 @@ export const Home = () => {
       <h3>Home Page</h3>
       <div css={{ paddingBottom: 10 }}>
         <button onClick={() => setModalVisible(true)}>Add Transaction</button>
-        { /* for some reason the modal isn't popping up correctly. I was originally going to use the modal and use Yup or Formik to add validated values to
-          the local state of the data. I am well over the recommended 2 hours so now just adding comments about what I would
-          do with more time :) */}
+        { /* for some reason the modal isn't popping up correctly. I was originally going to use the modal and use Yup and Formik to add 
+        validated values to the local state of the data. I am well over the recommended 2 hours and completed 3 other tasks so now just adding comments 
+        about what I would do with more time :) . I wanted to try to build this! */}
         <Modal title='Add a Transaction Below'
           visible={modalVisible}
           // would add additional lines to onOk something like: && setData([...data, {id: validatedValues.id, etc]})
