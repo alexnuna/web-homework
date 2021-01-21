@@ -2,15 +2,35 @@ import * as React from 'react'
 
 import { ResponsivePie } from '@nivo/pie'
 import { Radio } from 'antd'
+import { groupBy } from 'lodash'
 
+// should also have made this a constant to be used in both the pie component and the home component
 const fakeData = [{
   id: '1',
   user_id: 'user 1',
-  amount: 50,
+  amount: 729,
   credit: true,
   debit: false,
   description: '1',
-  merchant_id: 'merchant 1',
+  merchant_id: 'merchant 1'
+},
+{
+  id: '2',
+  user_id: 'user 2',
+  amount: 50,
+  credit: true,
+  debit: false,
+  description: '2',
+  merchant_id: 'merchant 2'
+},
+{
+  id: '4',
+  user_id: 'user 2',
+  amount: 222,
+  credit: true,
+  debit: false,
+  description: '3',
+  merchant_id: 'merchant 2'
 }]
 
 const getPieChart = (colors, data) => {
@@ -51,13 +71,17 @@ const getPieChart = (colors, data) => {
 export const Pie = () => {
   // const { loading, error } = useQuery(GetTransactions)
   const [viewUserChart, setViewUserChart] = React.useState(false)
-  const getPieData = (slicer) => fakeData.map(object =>
-    ({
-      id: object[slicer],
-      label: object[slicer],
-      value: object.amount
-    })
-  )
+  const getPieData = (data, slicer) => {
+    const dataBySlicer = groupBy(data, slicer)
+    return (Object.keys(dataBySlicer)?.map(object => (
+      {
+        id: object,
+        label: object,
+        value: dataBySlicer[object].reduce((acc, a) => acc + a.amount, 0)
+      }
+    )))
+  }
+
   // doing the logic here by Merchant and User since they are part of the basic schema rather then by category or spend per day for the sake of time
   return (
     <div css={{ padding: 20 }}>
@@ -78,7 +102,7 @@ export const Pie = () => {
       </Radio.Group>
       <div css={{ height: 400 }}>
         {/* need to add some type of loading response in the future for when this is fetched  */}
-        {viewUserChart ? getPieChart(['#6EDBFF'], getPieData('merchant_id')) : getPieChart(['#9BD7C8'], getPieData('user_id'))}
+        {viewUserChart ? getPieChart(['#6EDBFF', '#9BD7C8'], getPieData(fakeData, 'merchant_id')) : getPieChart(['#9BD7C8', '#6EDBFF'], getPieData(fakeData, 'user_id'))}
       </div >
     </div>
   )
